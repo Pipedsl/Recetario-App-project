@@ -7,10 +7,12 @@
 import Foundation
 
 
-struct Recipe: Identifiable{
+struct Recipe: Identifiable, Codable{
     
     var id = UUID()
+    var isFavorite: Bool = false
     var name: String
     var ingredients: [String]
     var instructions: [String]
 }
+

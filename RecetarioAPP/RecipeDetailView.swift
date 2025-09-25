@@ -6,7 +6,7 @@
 //
 import SwiftUI
 struct RecipeDetailView: View {
-    let recipe: Recipe
+    @Binding var recipe: Recipe
     
     var body: some View {
         ScrollView {
@@ -28,6 +28,11 @@ struct RecipeDetailView: View {
                     .fontWeight(.semibold)
                 ForEach(recipe.instructions, id: \.self) { instruction in
                     Text(instruction)
+                }
+                Button("Marcar como Favorito") {
+                    print("Antes: \(recipe.isFavorite)")
+                    recipe.isFavorite.toggle()
+                    print("Después: \(recipe.isFavorite)")
                 }
             }
             .padding()
